@@ -1,0 +1,241 @@
+.agent-card.selected {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.25);
+}
+
+.agents-panel {
+    height: 100%;
+}
+
+.agents-summary {
+    display: flex;
+    align-items: center;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    padding: 12px;
+}
+
+.agent-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.agent-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-cyan);
+    transform: translateY(-2px);
+}
+
+.agent-card.disconnected {
+    opacity: 0.55;
+    border-color: rgba(255, 51, 102, 0.15);
+}
+
+.agent-card.disconnected:hover {
+    border-color: rgba(255, 51, 102, 0.3);
+    box-shadow: var(--shadow-red);
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-active);
+    opacity: 0.5;
+}
+
+.agent-card.disconnected::before {
+    background: rgba(255, 51, 102, 0.5);
+}
+
+.agent-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.agent-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.agent-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.agent-status-dot.active {
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.agent-status-dot.disconnected {
+    background: var(--red);
+    box-shadow: 0 0 6px var(--red);
+}
+
+.agent-status-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.agent-name {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+}
+
+.agent-ip {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.agent-os {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    margin-bottom: 10px;
+}
+
+.agent-metrics {
+    display: flex;
+    gap: 16px;
+}
+
+.agent-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.am-label {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+.am-value {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-secondary);
+}
+
+.agent-alert-bar {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.agent-alert-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--amber));
+    border-radius: 1px;
+    transition: width 1s ease;
+}
+
+.agent-card-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 1px solid var(--border-dim);
+    border-left: 1px solid var(--border-dim);
+    border-radius: 4px 0 0 0;
+    opacity: 0.4;
+}
+
+.agent-stats-panel {
+    margin-top: 16px;
+}
+
+.agent-stats-body {
+    padding: 14px;
+}
+
+.severity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.severity-card {
+    border: 1px solid rgba(0, 200, 255, 0.2);
+    background: rgba(0, 20, 35, 0.45);
+    padding: 10px;
+}
+
+.sev-label {
+    display: block;
+    font-size: 9px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.sev-value {
+    display: block;
+    font-size: 22px;
+    font-family: var(--font-mono);
+    color: var(--cyan);
+    margin-top: 4px;
+}
+
+.chart-wrap {
+    border: 1px solid rgba(0, 200, 255, 0.18);
+    background: rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    margin-bottom: 14px;
+}
+
+.agent-chart {
+    width: 100%;
+    height: 180px;
+}
+
+.chart-bar {
+    fill: var(--cyan);
+    opacity: 0.8;
+}
+
+.top-ip-list {
+    border-top: 1px solid rgba(0, 200, 255, 0.16);
+    padding-top: 10px;
+}
+
+.top-ip-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 5px 0;
+}

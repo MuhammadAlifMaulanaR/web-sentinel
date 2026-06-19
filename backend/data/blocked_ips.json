@@ -1,0 +1,86 @@
+{
+  "119.96.131.8": {
+    "ip": "119.96.131.8",
+    "blockedAt": "2026-06-17T07:23:05.007Z",
+    "blockedBy": "admin",
+    "alertId": "9N9t1J4Bv7q9eiFQbW_3",
+    "rule": "PAM: User login failed.",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-17T07:23:18.305Z",
+    "unblockedBy": "admin"
+  },
+  "201.17.133.138": {
+    "ip": "201.17.133.138",
+    "blockedAt": "2026-06-17T07:56:22.185Z",
+    "blockedBy": "admin",
+    "alertId": "LN-S1J4Bv7q9eiFQ1HDZ",
+    "rule": "sshd: Authentication failed from a malicious IP address 201.17.133.138.",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-17T10:59:50.109Z",
+    "unblockedBy": "admin"
+  },
+  "64.227.168.89": {
+    "ip": "64.227.168.89",
+    "blockedAt": "2026-06-17T08:59:08.682Z",
+    "blockedBy": "admin",
+    "alertId": "nd_J1J4Bv7q9eiFQ_3Jw",
+    "rule": "Multiple web server 400 error codes from same source ip.",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-18T14:48:41.845Z",
+    "unblockedBy": "admin"
+  },
+  "170.84.39.236": {
+    "ip": "170.84.39.236",
+    "blockedAt": "2026-06-17T10:58:44.693Z",
+    "blockedBy": "admin",
+    "alertId": "7t871Z4Bv7q9eiFQm3e0",
+    "rule": "sshd: Attempt to login using a non-existent user",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-18T14:48:38.056Z",
+    "unblockedBy": "admin"
+  },
+  "207.180.219.120": {
+    "ip": "207.180.219.120",
+    "blockedAt": "2026-06-17T14:28:18.250Z",
+    "blockedBy": "admin",
+    "alertId": "Yd_11Z4Bv7q9eiFQkYWc",
+    "rule": "Shellshock attack detected",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-18T14:48:35.438Z",
+    "unblockedBy": "admin"
+  },
+  "91.92.42.19": {
+    "ip": "91.92.42.19",
+    "blockedAt": "2026-06-18T14:34:09.436Z",
+    "blockedBy": "admin",
+    "alertId": "L99k1p4Bv7q9eiFQ2JN_",
+    "rule": "sshd: Attempt to login using a non-existent user",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-18T14:36:22.016Z",
+    "unblockedBy": "admin"
+  },
+  "91.92.42.61": {
+    "ip": "91.92.42.61",
+    "blockedAt": "2026-06-19T00:33:22.702Z",
+    "blockedBy": "admin",
+    "alertId": "TUFL3Z4BxWHAhBhWyvjF",
+    "rule": "sshd: Attempt to login using a non-existent user",
+    "agent": "apache2_public_server",
+    "wazuhSuccess": false,
+    "active": false,
+    "unblockedAt": "2026-06-19T00:34:04.042Z",
+    "unblockedBy": "admin"
+  }
+}

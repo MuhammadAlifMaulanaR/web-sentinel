@@ -1,0 +1,111 @@
+.tg-status-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    margin-top: 8px;
+}
+
+.tg-status-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.tg-icon {
+    font-size: 11px;
+}
+
+.tg-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+}
+
+.tg-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.tg-dot.active {
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.tg-dot.inactive {
+    background: var(--text-muted);
+}
+
+.tg-state {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tg-sub-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--text-muted);
+    padding: 2px 0;
+}
+
+.tg-test-btn {
+    width: 100%;
+    margin-top: 8px;
+    background: rgba(0, 136, 204, 0.08);
+    border: 1px solid rgba(0, 136, 204, 0.3);
+    border-radius: 3px;
+    color: #5fb8e8;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tg-test-btn:hover:not(:disabled) {
+    background: rgba(0, 136, 204, 0.15);
+    border-color: #5fb8e8;
+}
+
+.tg-test-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.tg-test-result {
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    padding: 4px 6px;
+    border-radius: 2px;
+    animation: fadeIn 0.2s ease;
+}
+
+.tg-test-result.success {
+    background: rgba(0, 255, 136, 0.08);
+    color: var(--green);
+}
+
+.tg-test-result.error {
+    background: rgba(255, 51, 102, 0.08);
+    color: var(--red);
+}
+
+.tg-setup-hint {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    opacity: 0.7;
+}

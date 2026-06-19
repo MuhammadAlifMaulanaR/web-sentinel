@@ -1,0 +1,209 @@
+.dashboard-root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-void);
+    overflow: hidden;
+}
+
+.dashboard-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.dashboard-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.dashboard-content.expanded {
+    padding-left: 16px;
+}
+
+/* Overview layout */
+.overview-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overview-main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.map-container {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.feed-container {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+/* Single panel */
+.single-panel-layout {
+    height: 100%;
+    overflow: hidden;
+}
+
+.fullscreen-map {
+    padding: 0;
+}
+
+/* Panel base */
+.panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan-dim), transparent);
+    pointer-events: none;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-dim);
+    flex-shrink: 0;
+}
+
+.panel-title {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-title-icon {
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 1px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.panel-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Severity colors */
+.sev-critical {
+    color: var(--red);
+}
+
+.sev-high {
+    color: var(--amber);
+}
+
+.sev-medium {
+    color: #ffdd44;
+}
+
+.sev-low {
+    color: var(--green);
+}
+
+.sev-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sev-dot.critical {
+    background: var(--red);
+    box-shadow: 0 0 6px var(--red);
+    animation: threat-pulse 1.5s ease-in-out infinite;
+}
+
+.sev-dot.high {
+    background: var(--amber);
+    box-shadow: 0 0 6px var(--amber);
+}
+
+.sev-dot.medium {
+    background: #ffdd44;
+}
+
+.sev-dot.low {
+    background: var(--green);
+}
+
+/* Error banner */
+.error-banner-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 51, 102, 0.08);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 8px 14px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--red);
+    flex-shrink: 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.error-banner-top button {
+    background: rgba(255, 51, 102, 0.1);
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    border-radius: 3px;
+    color: var(--red);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.error-banner-top button:hover {
+    background: rgba(255, 51, 102, 0.2);
+}
+
+/* Agents view: two-panel layout */
+.agents-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    height: 100%;
+    overflow: hidden;
+}

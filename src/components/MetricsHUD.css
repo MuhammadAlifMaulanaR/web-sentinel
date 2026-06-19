@@ -1,0 +1,148 @@
+.metrics-hud {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.metric-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.6;
+}
+
+.metric-card:hover {
+    border-color: var(--accent, var(--border-active));
+    box-shadow: 0 0 20px var(--glow, var(--cyan-glow));
+    background: var(--bg-card-hover);
+}
+
+.metric-card-inner {
+    padding: 12px 14px;
+}
+
+.mc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.mc-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.mc-trend {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.mc-trend.up {
+    color: var(--red);
+}
+
+.mc-trend.down {
+    color: var(--green);
+}
+
+.mc-value {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-shadow: 0 0 20px currentColor;
+    position: relative;
+}
+
+.mc-value-blink {
+    position: absolute;
+    right: -8px;
+    top: 4px;
+    width: 2px;
+    height: 20px;
+    background: currentColor;
+    animation: blink-cursor 1.2s step-end infinite;
+    opacity: 0.6;
+}
+
+.mc-sub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.mc-bar-track {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.mc-bar-fill {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 1s ease;
+    opacity: 0.8;
+}
+
+/* Corner decorations */
+.mc-corner-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.4;
+}
+
+.c1 {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+}
+
+.c2 {
+    top: 0;
+    right: 0;
+    border-width: 1px 1px 0 0;
+}
+
+.c3 {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 1px 1px;
+}
+
+.c4 {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+}

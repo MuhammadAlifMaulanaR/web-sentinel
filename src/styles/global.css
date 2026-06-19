@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+    --bg-void: #020408;
+    --bg-deep: #040b12;
+    --bg-panel: #060e18;
+    --bg-card: #081422;
+    --bg-card-hover: #0a1a2e;
+    --border-dim: rgba(0, 200, 255, 0.08);
+    --border-active: rgba(0, 200, 255, 0.3);
+    --border-hot: rgba(0, 200, 255, 0.6);
+
+    --cyan: #00c8ff;
+    --cyan-dim: rgba(0, 200, 255, 0.4);
+    --cyan-glow: rgba(0, 200, 255, 0.15);
+    --green: #00ff88;
+    --green-dim: rgba(0, 255, 136, 0.4);
+    --amber: #ffaa00;
+    --amber-dim: rgba(255, 170, 0, 0.4);
+    --red: #ff3366;
+    --red-dim: rgba(255, 51, 102, 0.4);
+    --red-glow: rgba(255, 51, 102, 0.15);
+    --purple: #a855f7;
+    --purple-dim: rgba(168, 85, 247, 0.4);
+
+    --text-primary: #e2f4ff;
+    --text-secondary: rgba(180, 220, 255, 0.6);
+    --text-muted: rgba(120, 170, 210, 0.4);
+    --text-code: #00c8ff;
+
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-ui: 'Rajdhani', sans-serif;
+    --font-display: 'Orbitron', monospace;
+
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 12px;
+
+    --shadow-cyan: 0 0 20px rgba(0, 200, 255, 0.2);
+    --shadow-red: 0 0 20px rgba(255, 51, 102, 0.2);
+    --shadow-panel: 0 4px 40px rgba(0, 0, 0, 0.6);
+
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg-void);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    transition: opacity 0.6s ease;
+}
+
+.app-root.transitioning {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-active);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
+}
+
+/* Utility */
+.mono {
+    font-family: var(--font-mono);
+}
+
+.orbitron {
+    font-family: var(--font-display);
+}
+
+.text-cyan {
+    color: var(--cyan);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.text-amber {
+    color: var(--amber);
+}
+
+.text-red {
+    color: var(--red);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+/* Animations */
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes flicker {
+
+    0%,
+    95%,
+    100% {
+        opacity: 1;
+    }
+
+    96% {
+        opacity: 0.8;
+    }
+
+    97% {
+        opacity: 1;
+    }
+
+    98% {
+        opacity: 0.6;
+    }
+
+    99% {
+        opacity: 1;
+    }
+}
+
+@keyframes data-stream {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+@keyframes blink-cursor {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes spin-ring {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-ring-rev {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes arc-draw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes threat-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 4px var(--red), 0 0 8px var(--red-dim);
+    }
+
+    50% {
+        box-shadow: 0 0 8px var(--red), 0 0 20px var(--red-dim), 0 0 40px rgba(255, 51, 102, 0.1);
+    }
+}
+
+@keyframes grid-move {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 40px 40px;
+    }
+}
