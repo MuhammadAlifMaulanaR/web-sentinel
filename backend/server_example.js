@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
 import cors from "cors";
-import crypto from "crypto";
 import dotenv from "dotenv";
 import express from "express";
 import rateLimit from "express-rate-limit";
@@ -33,33 +32,38 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ─── Config ───────────────────────────────────────────────────────────────────
+const requiredEnv = (key) => {
+    const value = process.env[key];
+
+    if (!value) {
+        throw new Error(`Missing required environment variable: ${key}`);
+    }
+
+    return value;
+};
+
 const CONFIG = {
-    wazuhHost: process.env.WAZUH_HOST || "https://172.125.0.128",
+    wazuhHost: requiredEnv("WAZUH_HOST"),
     wazuhPort: process.env.WAZUH_PORT || "55000",
-    wazuhUser: process.env.WAZUH_API_USER || "wazuh-wui",
-    wazuhPass: process.env.WAZUH_API_PASS || "WcjhIrIdSn.2oH.ly.mho8G2MbX8eh7T",
-    indexerHost: process.env.INDEXER_HOST || "https://172.125.0.128",
+    wazuhUser: requiredEnv("WAZUH_API_USER"),
+    wazuhPass: requiredEnv("WAZUH_API_PASS"),
+
+    indexerHost: requiredEnv("INDEXER_HOST"),
     indexerPort: process.env.INDEXER_PORT || "9200",
-    indexerUser: process.env.INDEXER_USER || "admin",
-    indexerPass: process.env.INDEXER_PASS || "oRHZSZOg*p46ygR69VM9sgyGlfJ7RWrr",
-    jwtSecret: process.env.JWT_SECRET || crypto.randomBytes(64).toString("hex"),
-    jwtExpiry: process.env.JWT_EXPIRY || "8h",
+    indexerUser: requiredEnv("INDEXER_USER"),
+    indexerPass: requiredEnv("INDEXER_PASS"),
+
+    jwtSecret: requiredEnv("JWT_SECRET"),
+    jwtExpiry: process.env.JWT_EXPIRY || "5m",
     bcryptRounds: parseInt(process.env.BCRYPT_ROUNDS || "12"),
-    systemName: process.env.VITE_SYSTEM_NAME || "Sentinel SOC — Makassar",
 
-    // Email
-    smtpHost: process.env.SMTP_HOST || "smtp.gmail.com",
-    smtpPort: parseInt(process.env.SMTP_PORT || "587"),
-    smtpUser: process.env.SMTP_USER || "babysky7773@gmail.com",
-    smtpPass: process.env.SMTP_PASS || "lowr sksr eiba xevz",
-    escalateTo: process.env.ESCALATE_TO || "muhalifmaulanar.iclabs@umi.ac.id",
-    escalateCc: process.env.ESCALATE_CC || "muhalif.maulana17@gmail.com",
-
-    // Telegram
-    tgBotToken: process.env.TELEGRAM_BOT_TOKEN || "8241152085:AAHhpDbWXzsMA8OZg2CqmdL__Xc0zMcPQGE",
-    tgChatId: process.env.TELEGRAM_CHAT_ID || "-5391189429",
-    tgAutoNotifyCritical: process.env.TELEGRAM_AUTO_CRITICAL !== "false", // default ON
-    tgAutoNotifyHigh: process.env.TELEGRAM_AUTO_HIGH === "false",      // default OFF
+    telegramEnabled: String(process.env.TELEGRAM_ENABLED || "false") === "true",
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN || "",
+    telegramChatId: process.env.TELEGRAM_CHAT_ID || "",
+    telegramNotifyCritical: String(process.env.TELEGRAM_NOTIFY_CRITICAL || "true") === "true",
+    telegramNotifyHigh: String(process.env.TELEGRAM_NOTIFY_HIGH || "false") === "true",
+    telegramNotifyEscalate: String(process.env.TELEGRAM_NOTIFY_ESCALATE || "true") === "true",
+    telegramNotifyBlock: String(process.env.TELEGRAM_NOTIFY_BLOCK || "true") === "true",
 };
 
 // ─── Persistent Storage ───────────────────────────────────────────────────────

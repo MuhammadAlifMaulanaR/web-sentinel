@@ -41,6 +41,10 @@ backend/.env
 backend/.env.local
 backend/.env.*.local
 
+# Jangan upload file server asli
+backend/server.js
+server.js
+
 # OS / Editor
 Thumbs.db
 .vscode/
