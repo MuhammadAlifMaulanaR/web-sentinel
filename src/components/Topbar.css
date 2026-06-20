@@ -255,3 +255,11 @@
     color: var(--red);
     background: rgba(255, 51, 102, 0.08);
 }
+
+.topbar-logo {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0, 200, 255, 0.7));
+}

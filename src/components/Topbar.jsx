@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "../assets/LOGO_SENTINEL-1.png";
 import "./Topbar.css";
 
 export default function Topbar({ user, onLogout, connectionStatus, lastUpdate, metrics }) {
@@ -29,12 +30,13 @@ export default function Topbar({ user, onLogout, connectionStatus, lastUpdate, m
             {/* Logo */}
             <div className="topbar-brand">
                 <div className="brand-hex">
-                    <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
+                    <img src={logo} alt="Sentinel web logo" className="topbar-logo" />
+                    {/* <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
                         <polygon points="16,2 30,9 30,23 16,30 2,23 2,9"
                             stroke="var(--cyan)" strokeWidth="1.5" fill="rgba(0,200,255,0.08)" />
                         <text x="16" y="21" textAnchor="middle" fontFamily="Orbitron"
                             fontSize="10" fill="var(--cyan)" fontWeight="900">S</text>
-                    </svg>
+                    </svg> */}
                 </div>
                 <div>
                     <div className="brand-title">SENTINEL</div>

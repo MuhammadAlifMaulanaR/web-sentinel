@@ -460,3 +460,10 @@
     color: var(--text-muted);
     letter-spacing: 1px;
 }
+
+.topbar-logo-login {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 1px rgba(0, 200, 255, 0.7));
+}

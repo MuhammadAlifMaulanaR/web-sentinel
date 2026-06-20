@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import logo from "../assets/LOGO_SENTINEL-1.png";
 import "./LoginPage.css";
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3001";
@@ -213,14 +214,7 @@ export default function LoginPage({ onLogin }) {
                     {/* Logo */}
                     <div className="brand-header">
                         <div className="brand-icon">
-                            <svg viewBox="0 0 48 48" fill="none">
-                                <polygon points="24,4 44,14 44,34 24,44 4,34 4,14"
-                                    stroke="var(--cyan)" strokeWidth="1.5" fill="rgba(0,200,255,0.05)" />
-                                <polygon points="24,12 36,18 36,30 24,36 12,30 12,18"
-                                    stroke="var(--cyan)" strokeWidth="0.8" fill="rgba(0,200,255,0.03)" opacity="0.6" />
-                                <text x="24" y="29" textAnchor="middle" fontFamily="Orbitron"
-                                    fontSize="12" fill="var(--cyan)" fontWeight="700">S</text>
-                            </svg>
+                            <img src={logo} alt="Sentinel web logo" className="topbar-logo-login" />
                         </div>
                         <div className="brand-text">
                             <h1 className="brand-name">SENTINEL</h1>
